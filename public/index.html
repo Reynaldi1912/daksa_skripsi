@@ -1,0 +1,716 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="ThemeStarz">
+
+    <!--CSS -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/font-awesome/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <title>MyHouse - Advanced Real Estate HTML Template by ThemeStarz</title>
+
+    <style>
+        .ts-homepage h1 {
+            font-size: 2.25rem;
+        }
+        #ts-hero {
+            background-size: auto;
+            background-repeat: no-repeat;
+        }
+        main section {
+            padding-bottom: 3rem;
+        }
+        .badge {
+            font-size: 50%;
+            vertical-align: middle;
+        }
+        .ts-preview a::before {
+            background-color: #000;
+            box-shadow: 0 0 20px 8px rgba(0,0,0,.3);
+            bottom: 0;
+            content: "";
+            left: 0;
+            height: 0;
+            margin: auto;
+            position: absolute;
+            right: 0;
+            width: 80%;
+            z-index: -1;
+        }
+        .ts-preview a::after {
+            background-color: rgba(0,0,0,.7);
+            bottom: 0;
+            content: "View";
+            color: white;
+            text-align: center;
+            left: 0;
+            height: 100%;
+            margin: auto;
+            position: absolute;
+            padding: 25%;
+            right: 0;
+            width: 100%;
+            z-index: 1;
+            opacity: 0;
+            transition: .4s ease;
+        }
+        .ts-preview {
+            margin-bottom: 3rem;
+        }
+        .ts-preview a {
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
+        .ts-preview a:hover::after {
+            opacity: 1;
+        }
+        .ts-preview h6 {
+            margin-bottom: 1.5rem;
+        }
+        .ts-preview img {
+            max-width: 100%;
+        }
+        .ts-page-wrapper {
+            overflow-x: visible;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<!-- WRAPPER
+    =================================================================================================================-->
+<div class="ts-page-wrapper ts-homepage">
+
+    <!--*********************************************************************************************************-->
+    <!--HEADER **************************************************************************************************-->
+    <!--*********************************************************************************************************-->
+    <header id="ts-header" class="ts-shadow__none pb-3">
+
+        <!--PRIMARY NAVIGATION
+        =============================================================================================================-->
+        <nav id="ts-primary-navigation" class="navbar bg-transparent">
+            <div class="container">
+
+                <!--Brand Logo-->
+                <a class="navbar-brand" href="index-map-leaflet-fullscreen.html">
+                    <img src="assets/img/logo.png" alt="">
+                </a>
+
+                <a href="" class="ts-circle ts-bg-primary p-4 ts-shadow__md">
+                    <i class="fa fa-shopping-cart text-white"></i>
+                </a>
+
+            </div>
+            <!--end container-->
+        </nav>
+        <!--end #ts-primary-navigation.navbar-->
+
+    </header>
+    <!--end Header-->
+
+    <!-- HERO
+    =================================================================================================================-->
+    <section id="ts-hero" data-bg-image="assets/img/index-images/logo-bg.png" class="py-5">
+
+        <div class="w-100 ts-min-h__30vh ts-center__vertical">
+
+            <div class="container text-center">
+
+                <h1 class="position-relative d-inline-block">
+                    <span class="position-absolute ts-top__0 ts-right__0 h6 ts-opacity__50 ts-push-up__100">HTML</span>
+                    The <abbr data-toggle="tooltip" data-placement="top" title="The First With 5 Map Providers">Most Advanced</abbr> <strong>Real Estate Template</strong>
+                </h1>
+
+                <div class="ts-group">
+                    <a href="#demos" class="btn btn-secondary mx-1 ts-scroll">Demos</a>
+                    <a href="#" class="btn btn-primary mx-1">Buy Now</a>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+    <!--end ts-hero-->
+
+    <!--*********************************************************************************************************-->
+    <!-- MAIN ***************************************************************************************************-->
+    <!--*********************************************************************************************************-->
+
+    <main id="ts-main" class="bg-white py-5">
+
+        <section id="icons" class="mt-4">
+            <div class="container">
+
+                <h2>Features</h2>
+
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <div class="mt-3">
+                            <img src="assets/img/index-images/icon-map-providers.png" alt="">
+                            <h4 class="my-3 pb-3 font-weight-bold border-bottom">5 Map Providers!</h4>
+                            <p>
+                                MyHouse is the first template that brings not just a Google Maps, but also OpenStreetMap,
+                                MapBox, Here Maps and Bing Maps support.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="mt-3">
+                            <img src="assets/img/index-images/icon-pages.png" alt="">
+                            <h4 class="my-3 pb-3 font-weight-bold border-bottom">28 Homepage Variants</h4>
+                            <p>
+                                Choose between twenty map homepages, four slider or four static background image homepages.
+                                Every with different form style.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="mt-3">
+                            <img src="assets/img/index-images/icon-headers.png" alt="">
+                            <h4 class="my-3 pb-3 font-weight-bold border-bottom">2 Header Versions</h4>
+                            <p>
+                                Light or dark header version will fit to your design. Also you can set if you want a
+                                default header position or fixed, visible when you scroll.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <div class="container">
+            <h2>Demos</h2>
+        </div>
+
+        <section id="demos" class="sticky-top pt-2 mb-5">
+            <div class="container">
+
+                <div class="rounded p-3 ts-bg-light d-flex">
+                    <span>
+                        <strong>Map Homepage:</strong>
+                        <span class="ts-opacity__50">
+                            <a href="#osm" class="mx-1 ts-scroll">OpenStreetMap</a>
+                            <a href="#mapbox" class="mx-1 ts-scroll">MapBox</a>
+                            <a href="#google" class="mx-1 ts-scroll">Google</a>
+                            <a href="#here" class="mx-1 ts-scroll">Here</a>
+                            <a href="#bing" class="mx-1 ts-scroll">Bing</a>
+                        </span>
+                    </span>
+                    <span class="ml-auto">
+                        <a href="#slider" class="ts-scroll">Slider Homepage</a>
+                        <a href="#image" class="ml-3 ts-scroll">Image Homepage</a>
+                    </span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- OPEN STREET MAP
+        =============================================================================================================-->
+        <section id="osm">
+            <div class="container">
+
+                <h2 class="border-bottom pb-4 mb-5">
+                    OpenStreetMap
+                    <span class="badge badge-primary">Free</span>
+                </h2>
+
+                <div class="row">
+
+                    <!-- PREVIEW
+                    =================================================================================================-->
+                    <div class="col-md-6">
+                        <div class="ts-preview">
+                            <h6>Full Screen</h6>
+                            <a href="index-map-leaflet-fullscreen.html" class="ts-shadow__sm">
+                                <img src="assets/img/index-images/home-osm-fs.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- PREVIEW
+                    =================================================================================================-->
+                    <div class="col-md-6">
+                        <div class="ts-preview">
+                            <h6>Half Map</h6>
+                            <a href="index-map-leaflet-half-map.html" class="ts-shadow__sm">
+                                <img src="assets/img/index-images/home-osm-hm.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- PREVIEW
+                    =================================================================================================-->
+                    <div class="col-md-6">
+                        <div class="ts-preview">
+                            <h6>Form Bottom</h6>
+                            <a href="index-map-leaflet-form-bottom.html" class="ts-shadow__sm">
+                                <img src="assets/img/index-images/home-osm-fb.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- PREVIEW
+                    =================================================================================================-->
+                    <div class="col-md-6">
+                        <div class="ts-preview">
+                            <h6>Left Results</h6>
+                            <a href="index-map-leaflet-left-results.html" class="ts-shadow__sm">
+                                <img src="assets/img/index-images/home-osm-lr.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- MAPBOX
+        =============================================================================================================-->
+        <section id="mapbox">
+            <div class="container">
+
+                <h2 class="border-bottom pb-4 mb-5">
+                    MapBox
+                    <span class="badge badge-primary">Free</span>
+                </h2>
+
+                <div class="row">
+
+                    <!-- PREVIEW
+                    =================================================================================================-->
+                    <div class="col-md-6">
+                        <div class="ts-preview">
+                            <h6>Full Screen</h6>
+                            <a href="index-map-mapbox-fullscreen.html" class="ts-shadow__sm">
+                                <img src="assets/img/index-images/home-mapbox-fs.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- PREVIEW
+                    =================================================================================================-->
+                    <div class="col-md-6">
+                        <div class="ts-preview">
+                            <h6>Half Map</h6>
+                            <a href="index-map-mapbox-half-map.html" class="ts-shadow__sm">
+                                <img src="assets/img/index-images/home-mapbox-hm.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- PREVIEW
+                    =================================================================================================-->
+                    <div class="col-md-6">
+                        <div class="ts-preview">
+                            <h6>Form Bottom</h6>
+                            <a href="index-map-mapbox-form-bottom.html" class="ts-shadow__sm">
+                                <img src="assets/img/index-images/home-mapbox-fb.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- PREVIEW
+                    =================================================================================================-->
+                    <div class="col-md-6">
+                        <div class="ts-preview">
+                            <h6>Left Results</h6>
+                            <a href="index-map-mapbox-left-results.html" class="ts-shadow__sm">
+                                <img src="assets/img/index-images/home-mapbox-lr.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- GOOGLE
+        =============================================================================================================-->
+        <section id="google">
+            <div class="container">
+
+                <h2 class="border-bottom pb-4 mb-5">
+                    Google
+                </h2>
+
+                <div class="row">
+
+                    <!-- PREVIEW
+                    =================================================================================================-->
+                    <div class="col-md-6">
+                        <div class="ts-preview">
+                            <h6>Full Screen</h6>
+                            <a href="index-map-google-fullscreen.html" class="ts-shadow__sm">
+                                <img src="assets/img/index-images/home-google-fs.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- PREVIEW
+                    =================================================================================================-->
+                    <div class="col-md-6">
+                        <div class="ts-preview">
+                            <h6>Half Map</h6>
+                            <a href="index-map-google-half-map.html" class="ts-shadow__sm">
+                                <img src="assets/img/index-images/home-google-hm.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- PREVIEW
+                    =================================================================================================-->
+                    <div class="col-md-6">
+                        <div class="ts-preview">
+                            <h6>Form Bottom</h6>
+                            <a href="index-map-google-form-bottom.html" class="ts-shadow__sm">
+                                <img src="assets/img/index-images/home-google-fb.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- PREVIEW
+                    =================================================================================================-->
+                    <div class="col-md-6">
+                        <div class="ts-preview">
+                            <h6>Left Results</h6>
+                            <a href="index-map-google-left-results.html" class="ts-shadow__sm">
+                                <img src="assets/img/index-images/home-google-lr.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- HERE
+        =============================================================================================================-->
+        <section id="here">
+            <div class="container">
+
+                <h2 class="border-bottom pb-4 mb-5">
+                    Here
+                    <span class="badge badge-primary">Free</span>
+                </h2>
+
+                <div class="row">
+
+                    <!-- PREVIEW
+                    =================================================================================================-->
+                    <div class="col-md-6">
+                        <div class="ts-preview">
+                            <h6>Full Screen</h6>
+                            <a href="index-map-here-fullscreen.html" class="ts-shadow__sm">
+                                <img src="assets/img/index-images/home-here-fs.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- PREVIEW
+                    =================================================================================================-->
+                    <div class="col-md-6">
+                        <div class="ts-preview">
+                            <h6>Half Map</h6>
+                            <a href="index-map-here-half-map.html" class="ts-shadow__sm">
+                                <img src="assets/img/index-images/home-here-hm.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- PREVIEW
+                    =================================================================================================-->
+                    <div class="col-md-6">
+                        <div class="ts-preview">
+                            <h6>Form Bottom</h6>
+                            <a href="index-map-here-form-bottom.html" class="ts-shadow__sm">
+                                <img src="assets/img/index-images/home-here-fb.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- PREVIEW
+                    =================================================================================================-->
+                    <div class="col-md-6">
+                        <div class="ts-preview">
+                            <h6>Left Results</h6>
+                            <a href="index-map-here-left-results.html" class="ts-shadow__sm">
+                                <img src="assets/img/index-images/home-here-lr.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- BING
+        =============================================================================================================-->
+        <section id="bing">
+            <div class="container">
+
+                <h2 class="border-bottom pb-4 mb-5">
+                    Bing
+                    <span class="badge badge-primary">Free</span>
+                </h2>
+
+                <div class="row">
+
+                    <!-- PREVIEW
+                    =================================================================================================-->
+                    <div class="col-md-6">
+                        <div class="ts-preview">
+                            <h6>Full Screen</h6>
+                            <a href="index-map-bing-fullscreen.html" class="ts-shadow__sm">
+                                <img src="assets/img/index-images/home-bing-fs.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- PREVIEW
+                    =================================================================================================-->
+                    <div class="col-md-6">
+                        <div class="ts-preview">
+                            <h6>Half Map</h6>
+                            <a href="index-map-bing-half-map.html" class="ts-shadow__sm">
+                                <img src="assets/img/index-images/home-bing-hm.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- PREVIEW
+                    =================================================================================================-->
+                    <div class="col-md-6">
+                        <div class="ts-preview">
+                            <h6>Form Bottom</h6>
+                            <a href="index-map-bing-form-bottom.html" class="ts-shadow__sm">
+                                <img src="assets/img/index-images/home-bing-fb.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- PREVIEW
+                    =================================================================================================-->
+                    <div class="col-md-6">
+                        <div class="ts-preview">
+                            <h6>Left Results</h6>
+                            <a href="index-map-bing-left-results.html" class="ts-shadow__sm">
+                                <img src="assets/img/index-images/home-bing-lr.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SLIDER
+        =============================================================================================================-->
+        <section id="slider">
+            <div class="container">
+
+                <h2 class="border-bottom pb-4 mb-5">
+                    Slider Homepage
+                </h2>
+
+                <div class="row">
+
+                    <!-- PREVIEW
+                    =================================================================================================-->
+                    <div class="col-md-6">
+                        <div class="ts-preview">
+                            <h6>Default</h6>
+                            <a href="index-slider.html" class="ts-shadow__sm">
+                                <img src="assets/img/index-images/home-slider-d.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- PREVIEW
+                    =================================================================================================-->
+                    <div class="col-md-6">
+                        <div class="ts-preview">
+                            <h6>Full Screen</h6>
+                            <a href="index-slider-fullscreen.html" class="ts-shadow__sm">
+                                <img src="assets/img/index-images/home-slider-fs.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- PREVIEW
+                    =================================================================================================-->
+                    <div class="col-md-6">
+                        <div class="ts-preview">
+                            <h6>Vertical Form</h6>
+                            <a href="index-slider-form-vertical.html" class="ts-shadow__sm">
+                                <img src="assets/img/index-images/home-slider-vf.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- PREVIEW
+                    =================================================================================================-->
+                    <div class="col-md-6">
+                        <div class="ts-preview">
+                            <h6>Horizontal Form</h6>
+                            <a href="index-slider-form-horizontal.html" class="ts-shadow__sm">
+                                <img src="assets/img/index-images/home-slider-hf.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- IMAGE
+        =============================================================================================================-->
+        <section id="image">
+            <div class="container">
+
+                <h2 class="border-bottom pb-4 mb-5">
+                    Image Homepage
+                </h2>
+
+                <div class="row">
+
+                    <!-- PREVIEW
+                    =================================================================================================-->
+                    <div class="col-md-6">
+                        <div class="ts-preview">
+                            <h6>Horizontal Form</h6>
+                            <a href="index-image-form-horizontal-dark.html" class="ts-shadow__sm">
+                                <img src="assets/img/index-images/home-image-hf.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- PREVIEW
+                    =================================================================================================-->
+                    <div class="col-md-6">
+                        <div class="ts-preview">
+                            <h6>Vertical Form</h6>
+                            <a href="index-image-form-vertical-light.html" class="ts-shadow__sm">
+                                <img src="assets/img/index-images/home-image-vf.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- PREVIEW
+                    =================================================================================================-->
+                    <div class="col-md-6">
+                        <div class="ts-preview">
+                            <h6>Full Screen</h6>
+                            <a href="index-image-fullscreen.html" class="ts-shadow__sm">
+                                <img src="assets/img/index-images/home-image-fs.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- PREVIEW
+                    =================================================================================================-->
+                    <div class="col-md-6">
+                        <div class="ts-preview">
+                            <h6>Video Background</h6>
+                            <a href="index-video-background.html" class="ts-shadow__sm">
+                                <img src="assets/img/index-images/home-image-video.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section class="ts-block text-white" data-bg-color="#004efe">
+            <div class="container">
+
+                <h2 class="mb-5">Header Variations</h2>
+
+                <h6 class="mb-4">Light Version</h6>
+                <img src="assets/img/index-images/header-light.jpg" alt="" class="mw-100 mb-5">
+
+                <h6 class="mb-4">Dark Version</h6>
+                <img src="assets/img/index-images/header-dark.jpg" alt="" class="mw-100">
+
+            </div>
+        </section>
+
+        <section class="ts-block">
+            <div class="container">
+
+                <h2 class="mb-5">Property Detail</h2>
+
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <h6 class="mb-4">Version 1</h6>
+                        <a href="detail-01.html">
+                            <img src="assets/img/index-images/page-01.jpg" alt="" class="mw-100">
+                        </a>
+                    </div>
+
+                    <div class="col-md-4">
+                        <h6 class="mb-4">Version 2</h6>
+                        <a href="detail-02.html">
+                            <img src="assets/img/index-images/page-02.jpg" alt="" class="mw-100">
+                        </a>
+                    </div>
+
+                    <div class="col-md-4">
+                        <h6 class="mb-4">Version 3</h6>
+                        <a href="detail-03.html">
+                            <img src="assets/img/index-images/page-03.jpg" alt="" class="mw-100">
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+    <!--end #ts-main-->
+
+    <!--*********************************************************************************************************-->
+    <!--************ FOOTER *************************************************************************************-->
+    <!--*********************************************************************************************************-->
+
+    <footer id="ts-footer" class="mt-0 border-top">
+
+        <div class="container py-5">
+            <span class="small ts-opacity__50">(C) 2018 ThemeStarz, All Rights Reserved</span>
+        </div>
+
+    </footer>
+    <!--end #ts-footer-->
+
+</div>
+<!--end page-->
+
+<script src="assets/js/jquery-3.3.1.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/js/custom.js"></script>
+
+</body>
+</html>
