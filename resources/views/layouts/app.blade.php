@@ -18,8 +18,6 @@
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""></script>
 
-     <script src="/assets/js/jquery-3.3.1.min.js"></script>
-
     <title>DAKSA</title>
 
 </head>
@@ -32,6 +30,7 @@
 
     @include('layouts.header')
     <main id="ts-main">
+    <script src="/assets/js/jquery-3.3.1.min.js"></script>
         @yield('content')
 
     </main>
@@ -43,14 +42,14 @@
 @include('layouts.footer')
 
 <script src="/assets/js/popper.min.js"></script>
-<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="/assets/js/jquery.magnific-popup.min.js"></script>
 <script src="/assets/js/owl.carousel.min.js"></script>
 <!-- <script src="/assets/js/leaflet.js"></script> -->
 <!-- <script src="/assets/js/leaflet.markercluster.js"></script> -->
-<script src="/assets/js/custom.js"></script>
 <!-- <script src="/assets/js/map-leaflet.js"></script> -->
 
+     <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+     <script src="/assets/js/custom.js"></script>
 
 </body>
 </html>

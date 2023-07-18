@@ -49,6 +49,7 @@
                                     <!--Type-->
                                     <div class="col-sm-4">
                                         <select class="custom-select my-2" id="wilayah" name="wilayah">
+                                            <option value="-1">All</option>
                                            @foreach($wilayah as $wilayah_)
                                                 <option value="{{$wilayah_->id}}">{{$wilayah_->nama}}</option>
                                            @endforeach
@@ -58,6 +59,7 @@
                                     <!--Status-->
                                     <div class="col-sm-4">
                                         <select class="custom-select my-2" id="kategori" name="kategori">
+                                            <option value="-1">All</option>
                                             @foreach($kategori as $kategori_)
                                                 <option value="{{$kategori_->id}}">{{$kategori_->nama}}</option>
                                            @endforeach
@@ -99,7 +101,7 @@
     <main id="ts-main">
         <!-- FEATURED PROPERTIES
         =============================================================================================================-->
-        <section id="featured-properties" class="ts-block pt-5">
+        <section class="ts-block pt-5">
             <div class="container">
 
                 <!--Title-->
@@ -120,7 +122,7 @@
                             </div>
 
                             <!--Card Image-->
-                            <a href="{{route('detail',$key->id)}}" class="card-img ts-item__image" data-bg-image="storage/galeri/{{$galeri->where('id_tempat',$key->id)->first()->gambar}}">
+                            <a href="{{ route('detail', $key->id) }}" class="card-img ts-item__image" data-bg-image="{{ $galeri->where('id_tempat', $key->id)->isEmpty() ? 'assets/img/img-item-thumb-03.jpg' : 'storage/galeri/' . $galeri->where('id_tempat', $key->id)->first()->gambar }}">
                                 <figure class="ts-item__info">
                                     <h4>{{$key->nama}}</h4>
                                     <aside>
@@ -249,17 +251,7 @@
         </section>
         <!--end ts-block-->
 
-    </main>
-
-    <!--*********************************************************************************************************-->
-    <!--************ FOOTER *************************************************************************************-->
-    <!--*********************************************************************************************************-->
-
-    <footer id="ts-footer">
-
-        <!--MAIN FOOTER CONTENT
-        =============================================================================================================-->
-        <section id="ts-footer-main">
+        <section id="ts-footer-main bg-secondary">
             <div class="container">
                 <div class="row">
 
@@ -289,7 +281,12 @@
             </div>
             <!--end container-->
         </section>
-        <!--end ts-footer-main-->
+
+    </main>
+
+    <!--*********************************************************************************************************-->
+    <!--************ FOOTER *************************************************************************************-->
+    <!--*********************************************************************************************************-->
         <script>
             var map = L.map('map').setView([-7.9771206, 112.6340291], 12);
 
@@ -302,8 +299,6 @@
                     .then(response => response.json())
                     .then(data => {
                     data.forEach(item => {
-                       console.log(item);
-                        // Membuat ikon dengan gambar sebagai konten
                         var icon = L.divIcon({
                             className: 'custom-marker-icon',
                             iconSize: [1,1],
@@ -313,13 +308,34 @@
 
                         var marker = L.marker([item.latitude, item.longitude], { icon: icon }).addTo(map);
 
-                        var popupContent = `<a href="/detail/${item.id}" class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="/storage/galeri/${item.gambar}" alt="Card image cap">
-                            <div class="card-body">
-                            <h5 class="card-title">${item.nama}</h5>
-                            <p class="text-truncate" max-width="100px">${item.deskripsi}</p>                                
-                            </div>
-                        </a>`;
+                        const MAX_LENGTH = 100; // Batasan jumlah karakter yang ditampilkan
+
+                            // Menghapus tag HTML menggunakan fungsi replace
+                            const cleanDescription = item.deskripsi.replace(/<[^>]+>/g, '');
+
+                            // Memotong teks deskripsi menjadi panjang yang diinginkan
+                            const truncatedDescription = cleanDescription.length > MAX_LENGTH
+                            ? cleanDescription.substring(0, MAX_LENGTH) + '...' // Tambahkan titik-titik untuk menandakan bahwa teks telah dipotong
+                            : cleanDescription;
+
+                            var popupContent = null;
+                            if(item.gambar !== null){
+                                var popupContent = `<a href="/detail/${item.id}" class="card" style="width: 18rem;">
+                                <img class="card-img-top" src="/storage/galeri/${item.gambar}" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">${item.nama}</h5>
+                                    <p class="text-truncate" max-width="100px">${truncatedDescription}</p>                                
+                                </div>
+                                </a>`;
+                            }else{
+                                var popupContent = `<a href="/detail/${item.id}" class="card" style="width: 18rem;">
+                                <img class="card-img-top" src="/assets/img/img-item-thumb-03.jpg" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">${item.nama}</h5>
+                                    <p class="text-truncate" max-width="100px">${truncatedDescription}</p>                                
+                                </div>
+                                </a>`;
+                            }
 
                         marker.bindPopup(popupContent, {
                         minWidth: 200
@@ -365,14 +381,35 @@
 
                             var marker = L.marker([item.latitude, item.longitude], { icon: icon }).addTo(map);
 
+                            const MAX_LENGTH = 100; // Batasan jumlah karakter yang ditampilkan
 
-                            var popupContent = `<a href="/detail/${item.id}" class="card" style="width: 18rem;">
+                            // Menghapus tag HTML menggunakan fungsi replace
+                            const cleanDescription = item.deskripsi.replace(/<[^>]+>/g, '');
+
+                            // Memotong teks deskripsi menjadi panjang yang diinginkan
+                            const truncatedDescription = cleanDescription.length > MAX_LENGTH
+                            ? cleanDescription.substring(0, MAX_LENGTH) + '...' // Tambahkan titik-titik untuk menandakan bahwa teks telah dipotong
+                            : cleanDescription;
+
+
+                            var popupContent = null;
+                            if(item.gambar !== null){
+                                var popupContent = `<a href="/detail/${item.id}" class="card" style="width: 18rem;">
                                 <img class="card-img-top" src="/storage/galeri/${item.gambar}" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title">${item.nama}</h5>
-                                    <p class="text-truncate" max-width="100px">${item.deskripsi}</p>                                
+                                    <p class="text-truncate" max-width="100px">${truncatedDescription}</p>                                
                                 </div>
                                 </a>`;
+                            }else{
+                                var popupContent = `<a href="/detail/${item.id}" class="card" style="width: 18rem;">
+                                <img class="card-img-top" src="/assets/img/img-item-thumb-03.jpg" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">${item.nama}</h5>
+                                    <p class="text-truncate" max-width="100px">${truncatedDescription}</p>                                
+                                </div>
+                                </a>`;
+                            }
 
                             marker.bindPopup(popupContent, {
                                 minWidth: 200

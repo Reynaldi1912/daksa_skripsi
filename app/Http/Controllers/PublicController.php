@@ -40,6 +40,7 @@ class PublicController extends Controller
         $galeri = DB::table('galeri')->where('id_tempat',$id)->get();
         $ulasan = Ulasan::where('id_tempat',$id)->where('status',1)->paginate(3);
         $id = $id;
+        $fasilitas = DB::table('vw_fasilitas')->where('id_tempat',$id)->get();
         $rate = DB::table('ulasan')
                 ->select('id_tempat',
                     DB::raw('SUM(CASE WHEN rate = 1 THEN 1 ELSE 0 END) AS kurang'),
@@ -56,7 +57,7 @@ class PublicController extends Controller
             'total_kunjungan'=> $data->total_kunjungan == null ? 1 : ($data->total_kunjungan+1),
         ]);
 
-        return view('detail' , ['data'=>$data , 'galeri'=>$galeri , 'ulasan'=>$ulasan , 'id'=>$id , 'rate'=> $rate]);
+        return view('detail' , ['data'=>$data , 'galeri'=>$galeri , 'ulasan'=>$ulasan , 'id'=>$id , 'rate'=> $rate , 'fasilitas'=>$fasilitas]);
     }
     public function reloadCaptcha()
     {

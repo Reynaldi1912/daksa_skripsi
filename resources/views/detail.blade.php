@@ -40,9 +40,21 @@
 
                     <!--Price-->
                     <h3>
-                        <a href="#" class="btn btn-light w-100 mt-5" data-toggle="tooltip" data-placement="top" title="" data-original-title="Share property">
-                            <i class="fa fa-share-alt"></i>
-                        </a>
+                        <div class="row">
+                            <div class="col text-right">
+                                <a onclick="myFunction()" class="btn btn-light w-100 mt-5" data-toggle="tooltip" data-placement="top" title="" data-original-title="Copy Link">
+                                    <i class="fa fa-share-alt"></i>
+                                </a>
+                            </div>
+                            <div class="col text-left">
+                                <input type="text" value="http://127.0.0.1:8000/detail/{{$id}}" id="myInput" style="position: absolute; left: -9999px;">
+                                <a href="{{$data->link_rute}}" class="btn btn-light w-100 mt-5" data-toggle="tooltip" data-placement="top" title="" data-original-title="">
+                                    <i class="fa fa-location-arrow"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                       
                     </h3>
 
                 </div>
@@ -86,9 +98,10 @@
 
                             <h3>Deskripsi</h3>
 
-                            <p>
-                                {{$data->deskripsi}}
-                            </p>
+                            @php
+                                echo $data->deskripsi
+                            @endphp
+                            
 
                         </section>
                         <!-- test -->
@@ -112,16 +125,27 @@
 
                         <!--DESCRIPTION
                             =========================================================================================-->
-                        <section>
-
-                            <h3>Aksesbilitas</h3>
-
-                            <ul>
-                                <li><p>Pintu Masuk Khusus Pengguna Roda 4</p></li>
-                                <li><p>Pintu Masuk Khusus Pengguna Roda 4</p></li>
-                            </ul>
-
-                        </section>
+                            <div class="row mb-5">
+                                <div class="col">
+                                <section id="fasilitas">
+                                    <h3>Fasilitas</h3>
+                                    
+                                    @foreach($fasilitas as $key)
+                                        <span class="mb-4"><i class="{{$key->logo}}"></i> {{$key->nama}} </span><br>
+                                    @endforeach
+                                    
+                                    </section>
+                                </div>
+                                <div class="col">
+                                <!-- <section id="description">
+                                    <h3>Deskripsi Fasilitas</h3>
+                                    @php
+                                        echo $data->deskripsi_fasilitas
+                                    @endphp
+                                </section> -->
+                                </div>
+                            </div>
+                       
                         <!-- test -->
                     </div>
                     <!--end col-md-8-->
@@ -364,6 +388,21 @@
                 $('.captcha img').attr('src', captchaImgSrc);  // Mengatur URL src pada elemen img
             }
         });
+    }
+
+    function myFunction() {
+        // Get the text field
+        var copyText = document.getElementById("myInput");
+
+        // Select the text field
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); // For mobile devices
+
+        // Copy the text inside the text field
+        navigator.clipboard.writeText(copyText.value);
+
+        // Alert the copied text
+        alert("Copied the text: " + copyText.value);
     }
 </script>
 @endsection

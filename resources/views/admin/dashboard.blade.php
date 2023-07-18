@@ -156,13 +156,34 @@
 
                     var marker = L.marker([item.latitude, item.longitude], { icon: icon }).addTo(map);
 
-                    var popupContent = `<a href="#" style="width: 18rem;">
+                    const MAX_LENGTH = 100; // Batasan jumlah karakter yang ditampilkan
+
+                    // Menghapus tag HTML menggunakan fungsi replace
+                    const cleanDescription = item.deskripsi.replace(/<[^>]+>/g, '');
+
+                    // Memotong teks deskripsi menjadi panjang yang diinginkan
+                    const truncatedDescription = cleanDescription.length > MAX_LENGTH
+                    ? cleanDescription.substring(0, MAX_LENGTH) + '...' // Tambahkan titik-titik untuk menandakan bahwa teks telah dipotong
+                    : cleanDescription;
+
+                    var popupContent = null;
+                    if(item.gambar !== null){
+                        var popupContent = `<a href="/detail/${item.id}" class="" style="width: 18rem;">
                         <img class="card-img-top" src="/storage/galeri/${item.gambar}" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">${item.nama}</h5>
-                            <p class="text-truncate" style="max-width: 100px;">${item.deskripsi}</p>                                
+                            <p class="text-truncate" max-width="100px">${truncatedDescription}</p>                                
                         </div>
-                    </a>`;
+                        </a>`;
+                    }else{
+                        var popupContent = `<a href="/detail/${item.id}" class="" style="width: 18rem;">
+                        <img class="card-img-top" src="/assets/img/img-item-thumb-03.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">${item.nama}</h5>
+                            <p class="text-truncate" max-width="100px">${truncatedDescription}</p>                                
+                        </div>
+                        </a>`;
+                    }
 
                     marker.bindPopup(popupContent, {
                         minWidth: 200

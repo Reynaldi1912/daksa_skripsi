@@ -48,6 +48,7 @@
      <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""></script>
+
   </head>
   <body> 
     
@@ -165,7 +166,7 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-12 footer-copyright text-center">
-                <p class="mb-0">Copyright 2023 © Cuba theme by pixelstrap  </p>
+                <p class="mb-0">2023 © Mochammad Dimasqi Aliffudin Faiz </p>
               </div>
             </div>
           </div>

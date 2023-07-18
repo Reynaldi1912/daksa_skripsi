@@ -124,7 +124,8 @@ class TempatController extends Controller
             'id_kategori' => $request->kategori,
             'latitude' => $request->latitude,
             'longitude' => $request->longitude,
-            'link_rute' => $request->link_rute
+            'link_rute' => $request->link_rute,
+            'deskripsi_fasilitas' => $request->deskripsi_fasilitas
         ]);
         
         $tempat = Tempat::latest()->first(); 
@@ -149,7 +150,8 @@ class TempatController extends Controller
             'id_kategori' => $request->kategori,
             'latitude' => $request->latitude,
             'longitude' => $request->longitude,
-            'link_rute' => $request->link_rute
+            'link_rute' => $request->link_rute,
+            'deskripsi_fasilitas' => $request->deskripsi_fasilitas,
         ]);
         
         if($request->fasilitas != null){
@@ -167,17 +169,32 @@ class TempatController extends Controller
     }
 
     public function deleteFasilitas($id){
+        $cek = TempatFasilitas::where('id_fasilitas',$id)->first();
+
+        if($cek){
+            return redirect()->route('masterTempat')->with('error','Gagal Hapus');
+        }
         Fasilitas::find($id)->delete();
-        return redirect()->route('masterTempat')->with('error','berhasil hapus');
+        return redirect()->route('masterTempat')->with('success','berhasil hapus');
     }
     public function deleteWilayah($id){
+        $cek = Tempat::where('id_wilayah',$id)->first();
+        if($cek){
+            return redirect()->route('masterTempat')->with('error','Gagal Hapus');
+        }
         Wilayah::find($id)->delete();
-        return redirect()->route('masterTempat')->with('error','berhasil hapus');
+        return redirect()->route('masterTempat')->with('success','berhasil hapus');
     }
 
     public function deleteKategori($id){
+        $cek = Tempat::where('id_kategori',$id)->first();
+
+        if($cek){
+            return redirect()->route('masterTempat')->with('error','Gagal Hapus'); 
+        }
         Kategori::find($id)->delete();
-        return redirect()->route('masterTempat')->with('error','berhasil hapus');
+        return redirect()->route('masterTempat')->with('success','berhasil hapus');
+
     }
     public function deleteTempat($id){
         Tempat::find($id)->delete();
@@ -192,8 +209,10 @@ class TempatController extends Controller
         ->groupBy('status')
         ->get();
 
+        $title = "Semua Ulasan";
+
         $ulasan = DB::table('ulasan')->get();
-        return view('admin.master-ulasan' , ['ulasan'=>$ulasan ,'result'=>$result]);
+        return view('admin.master-ulasan' , ['ulasan'=>$ulasan ,'result'=>$result , 'title' => $title]);
     }
     public function galeriTempat($id)
     {
@@ -234,28 +253,31 @@ class TempatController extends Controller
         ->selectRaw('COUNT(id) AS count, CASE WHEN status = 1 THEN "Disetujui" WHEN status = 2 THEN "Ditolak" WHEN status = 0 THEN "Pending" END AS status_text')
         ->groupBy('status')
         ->get();
+        $title = "Ulasan Di Setujui";
 
         $ulasan = DB::table('ulasan')->where('status',1)->get();
-        return view('admin.master-ulasan' , ['ulasan'=>$ulasan , 'result'=>$result]);
+        return view('admin.master-ulasan' , ['ulasan'=>$ulasan , 'result'=>$result,'title' => $title]);
     }
     public function masterUlasanDitolak()
     {
+        $title = "Ulasan Di Tolak";
         $result = DB::table('ulasan')
         ->selectRaw('COUNT(id) AS count, CASE WHEN status = 1 THEN "Disetujui" WHEN status = 2 THEN "Ditolak" WHEN status = 0 THEN "Pending" END AS status_text')
         ->groupBy('status')
         ->get();
 
         $ulasan = DB::table('ulasan')->where('status',2)->get();
-        return view('admin.master-ulasan' , ['ulasan'=>$ulasan , 'result'=>$result]);
+        return view('admin.master-ulasan' , ['ulasan'=>$ulasan , 'result'=>$result,'title' => $title]);
     }
     public function masterUlasanDipending()
     {
+        $title = "Semua Pending";
         $result = DB::table('ulasan')
                 ->selectRaw('COUNT(id) AS count, CASE WHEN status = 1 THEN "Disetujui" WHEN status = 2 THEN "Ditolak" WHEN status = 0 THEN "Pending" END AS status_text')
                 ->groupBy('status')
                 ->get();
 
         $ulasan = DB::table('ulasan')->where('status',0)->get();
-        return view('admin.master-ulasan' , ['ulasan'=>$ulasan , 'result'=>$result]);
+        return view('admin.master-ulasan' , ['ulasan'=>$ulasan , 'result'=>$result,'title' => $title]);
     }
 }

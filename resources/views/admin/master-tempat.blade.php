@@ -1,6 +1,11 @@
 @extends('layouts.app-admin')
 
 @section('content')
+   <!-- include summernote css/js -->
+   
+   <link rel="stylesheet" type="text/css" href="../cuba/assets/css/vendors/summernote.css">
+  
+
 <div class="container-fluid">
     <div class="page-title">
         <div class="row">
@@ -32,16 +37,17 @@
                       <div class="col text-end">
                         <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-original-title="test" data-bs-target="#wisataModal">Tambahkan Tempat</button>
                           <div class="modal fade" id="wisataModal" tabindex="-1" role="dialog" aria-labelledby="exampleModal" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
+                            <div class="modal-dialog modal-xl" role="document">
                               <div class="modal-content">
                                 <div class="modal-body">
                                   <div class="modal-toggle-wrapper"> 
                                     <form action="{{route('postTempat')}}" method="post">
                                       @csrf
                                       <h4 class="text-start pb-4">Tambahkan Tempat</h4>
-                                      <input type="text" class="form-control" placeholder="Nama Tempat" name="nama" required>
-                                      <textarea name="deskripsi" id="" cols="20" rows="10" class="form-control mt-3" placeholder="Deskripsi"></textarea>
-                                      <textarea name="link_rute" id="" cols="10" rows="10" class="form-control mt-3" placeholder="Link Rute"></textarea>
+                                      <input type="text" class="form-control mb-2" placeholder="Nama Tempat" name="nama" required>
+                                      <textarea id="summernote" name="deskripsi" class="mt-3"></textarea>
+                                      <textarea name="link_rute" id="" cols="10" rows="10" class="form-control mt-3 mb-2" placeholder="Link Rute"></textarea>
+                                      <textarea id="summernote3" name="deskripsi_fasilitas"></textarea>
                                       <select name="lokasi" class="form-control mt-3">
                                         <option value="">Pilih Lokasi</option>
                                         @foreach($wilayah as $wilayahs)
@@ -367,7 +373,7 @@
           </div>
 
           <div class="modal fade" id="editModalTempat" tabindex="-1" role="dialog" aria-labelledby="exampleModal" aria-hidden="true">
-              <div class="modal-dialog" role="document">
+              <div class="modal-dialog modal-xl" role="document">
                 <div class="modal-content">
                   <div class="modal-body">
                     <div class="modal-toggle-wrapper"> 
@@ -376,11 +382,10 @@
                         @method('patch')
                         <input type="hidden" id="id_tempat" name="id_tempat">
                         <h4 class="text-start pb-4">Edit Tempat</h4>
-                        <input type="text" class="form-control" placeholder="Nama Tempat" name="nama" id="nama_edit" required>
-                        <textarea name="deskripsi" id="deskripsi_edit" cols="20" rows="10" class="form-control mt-3" placeholder="Deskripsi">
-                        </textarea>
-                        <textarea name="link_rute" id="link_rute" cols="10" rows="10" class="form-control mt-3" placeholder="Link Rute"></textarea>
-
+                        <input type="text" class="form-control mb-2" placeholder="Nama Tempat" name="nama" id="nama_edit" required>
+                        <textarea id="summernote1" name="deskripsi" class="mt-3"></textarea>
+                        <textarea name="link_rute" id="link_rute" cols="10" rows="10" class="form-control mt-3 mb-2" placeholder="Link Rute"></textarea>
+                        <textarea id="summernote4" name="deskripsi_fasilitas" class="mt-3"></textarea>
 
                         <select name="lokasi" class="form-control mt-3" id="lokasi_edit">
                           <option value="">Pilih Lokasi</option>
@@ -417,6 +422,20 @@
           <script>
             $(document).ready(function() {
                   $('.js-example-basic-multiple').select2();
+                  $('#summernote').summernote({
+                    placeholder: 'Deskripsi',
+                    direction:'ltr',
+                    tabsize: 2,
+                    height: 200
+                  }); 
+                  
+                  $('#summernote3').summernote({
+                    placeholder: 'Deskripsi Fasilitas',
+                    direction:'ltr',
+                    tabsize: 2,
+                    height: 200
+                  });
+                 
             });
 
             function editFasilitas(id){
@@ -465,7 +484,8 @@
                   success: function (data) {
                       document.getElementById('id_tempat').value=data.id;
                       document.getElementById('nama_edit').value=data.nama;
-                      document.getElementById('deskripsi_edit').value = data.deskripsi;
+                      $('#summernote1').summernote('code', data.deskripsi);     
+                      $('#summernote4').summernote('code', data.deskripsi_fasilitas);                                                                       
                       document.getElementById('lokasi_edit').value = data.id_wilayah;
                       document.getElementById('kategori_edit').value = data.id_kategori;
                       document.getElementById('latitude_edit').value = data.latitude;
@@ -475,5 +495,8 @@
               });
             }
           </script>
+
+    <script src="../cuba/assets/js/editor/summernote/summernote.js"></script>
+    <script src="../cuba/assets/js/editor/summernote/summernote.custom.js"></script>
 
 @endsection

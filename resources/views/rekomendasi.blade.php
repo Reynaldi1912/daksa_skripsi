@@ -88,7 +88,7 @@
                         <div class="card ts-item ts-card ts-item__lg">
 
                             <!--Card Image-->
-                            <a href="{{route('detail',$data_->id)}}" class="card-img ts-item__image" data-bg-image="storage/galeri/{{$galeri->where('id_tempat',$data_->id)->first()->gambar}}">
+                            <a href="{{ route('detail', $data_->id) }}" class="card-img ts-item__image" data-bg-image="{{ $galeri->where('id_tempat', $data_->id)->isEmpty() ? 'assets/img/img-item-thumb-03.jpg' : 'storage/galeri/' . $galeri->where('id_tempat', $data_->id)->first()->gambar }}">
                                 <figure class="ts-item__info">
                                     <h4>{{$data_->nama}}</h4>
                                     <aside>

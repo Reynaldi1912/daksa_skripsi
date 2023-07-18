@@ -65,10 +65,10 @@
         <div class="card">
             <div class="card-body">
             <div class="todo">
+                <h5>{{$title}}</h5>
                 <div class="todo-list-wrapper">
                 <div class="todo-list-container">
-                    <div class="mark-all-tasks">
-                    
+                    <div class="mark-all-tasks pb-5">
                     </div>
                     <div class="todo-list-body">
                     <div class="todo-list-footer"> 

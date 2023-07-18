@@ -18,6 +18,7 @@ class Tempat extends Model
         'latitude',
         'longitude',
         'total_kunjungan',
-        'link_rute'
+        'link_rute',
+        'deskripsi_fasilitas'
     ];
 }
