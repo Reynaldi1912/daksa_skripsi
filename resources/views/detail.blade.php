@@ -333,15 +333,14 @@
                                 @csrf
                                 <input type="hidden" name="id" value="{{$id}}">
                                 <label for=""><b>Nama</b></label>
-                                <input type="text" class="form-control" name="nama" required placeholder="Nama Anda">
+                                <input type="text" class="form-control" name="nama" required placeholder="Nama Anda" required>
                                 <label class="mt-3"><b>Pengalaman</b></label>
                                 <select class="form-control" name="rate" required>
-                                    <option>Pilih Angka 1 - 5</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
                                     <option value="5">5</option>
+                                    <option value="4">4</option>
+                                    <option value="3">3</option>
+                                    <option value="2">2</option>
+                                    <option value="1">1</option>
                                 </select>
                                 <label class="mt-3">Pesan</label>
                                 <textarea name="ulasan" id="" cols="30" rows="10" class="form-control" placeholder="Berilah pesan pengalaman anda setelah mengunjungi tempat tersebut" required></textarea>
