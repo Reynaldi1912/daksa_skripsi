@@ -30,20 +30,38 @@ class TempatController extends Controller
     }
     public function postFasilitas(Request $request)
     {
-        Fasilitas::create([
-            'nama' => $request->nama,
-            'logo' => $request->logo
-        ]);
+        $file = $request->file('svg');
+        if ($file) {
+            $extension = $file->getClientOriginalExtension();
+            $filename = Str::random(40) . '.' . $extension;
+            $path = $file->storeAs('icon', $filename, 'public');
+            
+            Fasilitas::create([
+                'nama' => $request->nama,
+                'logo' => $filename
+            ]);
         return redirect()->route('masterTempat')->with('success','Berhasil Tambah Fasilitas');
+        }
+        return redirect()->route('masterTempat')->with('error','Gagal Tambah Fasilitas');
+
+        
     }
     public function editFasilitas(Request $request)
     {
-        $fasilitas = Fasilitas::where('id',$request->id_fasilitas)->first();
-        $fasilitas->update([
-            'nama' => $request->nama,
-            'logo' => $request->logo
-        ]);
-        return redirect()->route('masterTempat')->with('warning','Berhasil Edit Fasilitas');
+        $file = $request->file('svg');
+        if ($file) {
+            $extension = $file->getClientOriginalExtension();
+            $filename = Str::random(40) . '.' . $extension;
+            $path = $file->storeAs('icon', $filename, 'public');
+            
+            $fasilitas = Fasilitas::where('id',$request->id_fasilitas)->first();
+            $fasilitas->update([
+                'nama' => $request->nama,
+                'logo' => $filename
+            ]);
+        return redirect()->route('masterTempat')->with('success','Berhasil Edit Fasilitas');
+        }
+        return redirect()->route('masterTempat')->with('error','Gagal Edit Fasilitas');
     }
     public function postWilayah(Request $request)
     {

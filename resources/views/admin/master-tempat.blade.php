@@ -259,11 +259,11 @@
                               <div class="modal-content">
                                 <div class="modal-body">
                                   <div class="modal-toggle-wrapper"> 
-                                    <form action="{{route('postFasilitas')}}" method="post">
+                                    <form action="{{route('postFasilitas')}}" method="post" enctype="multipart/form-data">
                                       @csrf
                                       <h4 class="text-start pb-4">Tambahkan Fasilitas</h4>
                                       <input type="text" class="form-control mb-3" placeholder="Nama Fasilitas" name="nama" required>
-                                      <input type="text" class="form-control mt-3" placeholder="Icon Fasilitas" name="logo" required>
+                                      <input type="file" class="form-control mt-3" name="svg" required>
                                       <button class="btn btn-primary btn-block mt-3" type="submit">Simpan</button>
                                     </form>
                                   </div>
@@ -292,7 +292,7 @@
                             <tr>
                               <td>{{$fasilitas_->nama}}</td>
                               <td>{{$fasilitas_->created_at}}</td>
-                              <td><i class="{{$fasilitas_->logo}}"></i></td>
+                              <td><img src="/storage/icon/{{$fasilitas_->logo}}" alt=""></td>
                               <td> 
                                 <ul class="action"> 
                                   <li class="edit"> <a data-bs-toggle="modal" data-original-title="test" data-bs-target="#editModalFasilitas" onclick="editFasilitas({{$fasilitas_->id}});"><i class="icon-pencil-alt"></i></a></li>
@@ -324,7 +324,7 @@
                       <h4 class="text-start pb-4">Edit fasilitas</h4>
                       <input type="hidden" id="id_fasilitas" name="id_fasilitas">
                       <input type="text" class="form-control" placeholder="Nama Fasilitas" name="nama" id="nama_fasilitas" required>
-                      <input type="text" class="form-control mt-3" placeholder="Icon Fasilitas" id="logo_fasilitas" name="logo" required>
+                      <input type="file" class="form-control mt-3" name="svg" required>
                       <button class="btn btn-primary btn-block mt-3" type="submit">Simpan</button>
                     </form>
                   </div>
@@ -444,9 +444,9 @@
                   dataType: 'json',
                   url: "/get-fasilitas/"+id,
                   success: function (data) {
+                    console.log(id);
                       document.getElementById('nama_fasilitas').value=data.nama;
-                      document.getElementById('logo_fasilitas').value=data.logo;
-                      document.getElementById('id_fasilitas').value=id;
+                      document.getElementById('id_fasilitas').value=data.id;
 
                   }
               });
