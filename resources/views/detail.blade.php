@@ -41,20 +41,18 @@
                     <!--Price-->
                     <h3>
                         <div class="row">
-                            <div class="col text-right">
+                            <!-- <div class="col text-right">
                                 <input type="text" value="daksa.biz.id/detail/{{$id}}" id="myInput" style="position: absolute; left: -9999px;">
                                 <a onclick="myFunction()" class="btn btn-light w-100 mt-5" data-toggle="tooltip" data-placement="top" title="" data-original-title="Copy Link">
                                     <i class="fa fa-share-alt"></i>
                                 </a>
-                            </div>
+                            </div> -->
                             <div class="col text-left">
-                                <a href="http://{{$data->link_rute}}" class="btn btn-light w-100 mt-5">
+                                <a href="{{$data->link_rute}}" class="btn btn-light w-100 mt-5">
                                     <i class="fa fa-location-arrow"></i>
                                 </a>
                             </div>
                         </div>
-                        
-                       
                     </h3>
 
                 </div>
@@ -87,11 +85,9 @@
             <div class="container">
                 <div class="row flex-wrap-reverse">
 
-                    
                     <!--RIGHT SIDE
                         =============================================================================================-->
                     <div class="col-md-12 col-lg-12">
-
                         <!--DESCRIPTION
                             =========================================================================================-->
                         <section id="description">
@@ -101,8 +97,7 @@
                             @php
                                 echo $data->deskripsi
                             @endphp
-                            
-
+                        
                         </section>
                         <!-- test -->
                     </div>
@@ -117,12 +112,9 @@
         <section>
             <div class="container">
                 <div class="row flex-wrap-reverse">
-
-                    
                     <!--RIGHT SIDE
                         =============================================================================================-->
                     <div class="col-md-12 col-lg-12">
-
                         <!--DESCRIPTION
                             =========================================================================================-->
                             <div class="row mb-4">
@@ -131,20 +123,17 @@
                                     <h3>Fasilitas</h3>
                                     
                                     @foreach($fasilitas as $key)
-                                        <span class="mb-4"><img src="/storage/icon/{{$key->logo}}" alt=""> &nbsp{{$key->nama}} </span><br>
+                                        <div class="mb-2"><span class="mb-4 ml-4"><img src="/storage/icon/{{$key->logo}}" style="max-width:32px;max-height:32px" alt=""> &nbsp{{$key->nama}} </span></div>
                                     @endforeach
+                                    <br>
+                                    @php
+                                        echo $data->deskripsi_fasilitas
+                                    @endphp
                                     
                                     </section>
                                 </div>
                                 
                             </div>
-                            <section id="description">
-                                    <h3>Deskripsi Fasilitas</h3>
-                                    @php
-                                        echo $data->deskripsi_fasilitas
-                                    @endphp
-                                </section>
-                       
                         <!-- test -->
                     </div>
                     <!--end col-md-8-->
@@ -158,8 +147,6 @@
         <section>
             <div class="container">
                 <div class="row flex-wrap-reverse">
-
-                    
                     <!--RIGHT SIDE
                         =============================================================================================-->
                     <div class="col-md-12 col-lg-12">
@@ -170,7 +157,7 @@
 
                             <h3>Map</h3>
 
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31617.014696445196!2d112.4982528840655!3d-7.881795699888658!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7880d9c33a06b1%3A0xe13ff8ae351bb29e!2sTemas%2C%20Kec.%20Batu%2C%20Kota%20Batu%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1689249939253!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31617.014696445196!2d112.65676674197444!3d-7.923129745784932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7880d9c33a06b1%3A0xe13ff8ae351bb29e!2sTemas%2C%20Kec.%20Batu%2C%20Kota%20Batu%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1689249939253!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
                         </section>
                         <!-- test -->
@@ -193,7 +180,6 @@
                         <!--DESCRIPTION
                             =========================================================================================-->
                         <section>
-
                         <div class="row">
                             <div class="col-sm-1">
                                 <h3 style="font-size:20px"><b>Ulasan</b></h3>
@@ -301,7 +287,6 @@
                         <!-- test -->
                     </div>
                     <!--end col-md-8-->
-
                 </div>
                 <!--end row-->
             </div>

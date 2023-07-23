@@ -257,8 +257,8 @@
 
                     <!--Brand and description-->
                     <div class="col-md-6">
-                        <a href="#" class="brand">
-                            <img src="assets/img/vector.png" alt="">
+                        <a href="#" class="brand d-flex justify-content-center pt-3">
+                            <img src="assets/img/vector.png" alt="" width="80%">
                         </a>
                     </div>
 
