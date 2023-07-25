@@ -104,7 +104,7 @@
                                     <dl>
                                         <dt>Fasilitas</dt>
                                         @foreach($fasilitas->where('id_tempat',$data_->id) as $fasilitass)
-                                            <i class="{{$fasilitass->logo}}"></i>
+                                            <span class=""><img src="/storage/icon/{{$fasilitass->logo}}" style="max-width:32px;max-height:32px" alt=""> </span>
                                         @endforeach
                                     </dl>
                                 </div>
