@@ -292,7 +292,7 @@
                             <tr>
                               <td>{{$fasilitas_->nama}}</td>
                               <td>{{$fasilitas_->created_at}}</td>
-                              <td><img src="/storage/icon/{{$fasilitas_->logo}}" alt=""></td>
+                              <td><img src="/storage/icon/{{$fasilitas_->logo}}" style="max-width:32px;max-height:32px" alt=""></td>
                               <td> 
                                 <ul class="action"> 
                                   <li class="edit"> <a data-bs-toggle="modal" data-original-title="test" data-bs-target="#editModalFasilitas" onclick="editFasilitas({{$fasilitas_->id}});"><i class="icon-pencil-alt"></i></a></li>

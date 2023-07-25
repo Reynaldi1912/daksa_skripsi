@@ -157,8 +157,28 @@
 
                             <h3>Map</h3>
 
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31617.014696445196!2d112.65676674197444!3d-7.923129745784932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7880d9c33a06b1%3A0xe13ff8ae351bb29e!2sTemas%2C%20Kec.%20Batu%2C%20Kota%20Batu%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1689249939253!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <div>
+                            <?php
+                                // Membaca data dari file JSON
+                                $latitude = $data->latitude;
+                                $longitude = $data->longitude;
 
+                                // Menyusun URL iframe dengan latitude dan longitude
+                                $iframe_url = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15802.667504825315!2d$longitude!3d$latitude!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fa7aafcee7a7:0x8ec086c0f9f28d2e!2sSample%20Location!5e0!3m2!1sen!2sid!4v1627170138612!5m2!1sen!2sid";
+
+                                // Tambahkan parameter markers untuk menampilkan marker pada peta
+                                $marker_url = "&markers=color:red%7C$latitude,$longitude";
+                                $iframe_url .= $marker_url;
+                            ?>
+                                <iframe
+                                    width="100%"
+                                    height="450"
+                                    frameborder="0"
+                                    style="border:0"
+                                    src="<?php echo $iframe_url; ?>">
+                                </iframe>
+
+                            </div>
                         </section>
                         <!-- test -->
                     </div>
@@ -320,11 +340,11 @@
                                 <input type="text" class="form-control" name="nama" required placeholder="Nama Anda" required>
                                 <label class="mt-3"><b>Pengalaman</b></label>
                                 <select class="form-control" name="rate" required>
-                                    <option value="5">5</option>
-                                    <option value="4">4</option>
-                                    <option value="3">3</option>
-                                    <option value="2">2</option>
-                                    <option value="1">1</option>
+                                    <option value="5">5 - Sangat Memuaskan</option>
+                                    <option value="4">4 - Memuaskan</option>
+                                    <option value="3">3 - Bagus</option>
+                                    <option value="2">2 - Biasa</option>
+                                    <option value="1">1 - Kurang</option>
                                 </select>
                                 <label class="mt-3">Pesan</label>
                                 <textarea name="ulasan" id="" cols="30" rows="10" class="form-control" placeholder="Berilah pesan pengalaman anda setelah mengunjungi tempat tersebut" required></textarea>
