@@ -87,7 +87,7 @@ class PublicController extends Controller
         if ($request->kota != null) {
             $data_->where('id_wilayah', $request->kota);
         }
-        $data = $data_->paginate(12);
+        $data = $data_->paginate(15);
 
         
         $fasilitas = DB::table('vw_fasilitas')->get();
