@@ -25,7 +25,7 @@ class PublicController extends Controller
         return view('index' , ['data'=>$data , 'fasilitas'=>$fasilitas , 'galeri'=>$galeri , 'kategori'=>$kategori , 'wilayah'=> $wilayah]);
     }
     public function rekomendasi(){
-        $data = VwTempat::orderBy('total_kunjungan', 'desc')->paginate(12);
+        $data = VwTempat::orderBy('total_kunjungan', 'desc')->paginate(15);
         $fasilitas = DB::table('vw_fasilitas')->get();
         $galeri = DB::table('galeri')->get();
         $kategori = DB::table('kategori')->get();
