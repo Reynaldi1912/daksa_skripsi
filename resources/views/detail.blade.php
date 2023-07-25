@@ -158,18 +158,14 @@
                             <h3>Map</h3>
 
                             <div>
-                            <?php
-                                // Membaca data dari file JSON
-                                $latitude = $data->latitude;
-                                $longitude = $data->longitude;
+                                <?php
+                                    // Membaca data dari file JSON
+                                    $latitude = $data->latitude;
+                                    $longitude = $data->longitude;
 
-                                // Menyusun URL iframe dengan latitude dan longitude
-                                $iframe_url = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15802.667504825315!2d$longitude!3d$latitude!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fa7aafcee7a7:0x8ec086c0f9f28d2e!2sSample%20Location!5e0!3m2!1sen!2sid!4v1627170138612!5m2!1sen!2sid";
-
-                                // Tambahkan parameter markers untuk menampilkan marker pada peta
-                                $marker_url = "&markers=color:red%7C$latitude,$longitude";
-                                $iframe_url .= $marker_url;
-                            ?>
+                                    // Menyusun URL iframe dengan latitude dan longitude
+                                    $iframe_url = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15802.667504825315!2d$longitude!3d$latitude!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fa7aafcee7a7:0x8ec086c0f9f28d2e!2sSample%20Location!5e0!3m2!1sen!2sid!4v1627170138612!5m2!1sen!2sid";
+                                ?>
                                 <iframe
                                     width="100%"
                                     height="450"
@@ -177,7 +173,6 @@
                                     style="border:0"
                                     src="<?php echo $iframe_url; ?>">
                                 </iframe>
-
                             </div>
                         </section>
                         <!-- test -->
