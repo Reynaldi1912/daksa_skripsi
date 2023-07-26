@@ -2,7 +2,7 @@
 @section('content')
 
 <style>
-    #map { height: 600px; }
+    #map { height: 400px; }
 </style>
     <!-- HERO MAP
     =================================================================================================================-->
@@ -10,7 +10,7 @@
 
         <!-- MAP
         =============================================================================================================-->
-        <div class="ts-map w-100 ts-min-h__60vh ts-z-index__1">
+        <div class="ts-map w-100 ts-min-h__30vh ts-z-index__1">
 
             <!-- <div id="ts-map-hero" class="h-100"
                  data-ts-map-leaflet-provider="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}{r}.png"
@@ -99,75 +99,37 @@
     <!--*********************************************************************************************************-->
 
     <main id="ts-main">
-        <!-- FEATURED PROPERTIES
-        =============================================================================================================-->
-        <section class="ts-block pt-5">
+    <section id="ts-footer-main bg-secondary">
             <div class="container">
-
-                <!--Title-->
-                <div class="ts-title text-center">
-                    <h2>Yang Paling Populer</h2>
-                </div>
-
                 <div class="row">
 
-                    <!--Item-->
-                    @foreach($data as $key)
-                    <div class="col-sm-4 col-lg-4">
-                        <div class="card ts-item ts-card ts-item__lg">
-
-                            <!--Ribbon-->
-                            <div class="ts-ribbon">
-                                <i class="fa fa-thumbs-up"></i>
-                            </div>
-
-                            <!--Card Image-->
-                            <a href="{{ route('detail', $key->id) }}" class="card-img ts-item__image" data-bg-image="{{ $galeri->where('id_tempat', $key->id)->isEmpty() ? 'assets/img/img-item-thumb-03.jpg' : 'storage/galeri/' . $galeri->where('id_tempat', $key->id)->first()->gambar }}">
-                                <figure class="ts-item__info">
-                                    <h4>{{$key->nama}}</h4>
-                                    <aside>
-                                        <i class="fa fa-map-marker mr-2"></i>
-                                        {{$key->nama_wilayah}}
-                                    </aside>
-                                </figure>
-                            </a>
-
-                            <!--Card Body-->
-                            <div class="card-body">
-                                <div class="ts-description-lists">
-                                    <dl>
-                                        <dt>Fasilitas</dt>
-                                        @foreach($fasilitas->where('id_tempat',$key->id) as $fasilitass)
-                                            <span class=""><img src="/storage/icon/{{$fasilitass->logo}}" style="max-width:32px;max-height:32px" alt=""> </span>
-                                        @endforeach                                        
-                                    </dl>
-                                </div>
-                            </div>
-
-                            <!--Card Footer-->
-                            <a href="{{route('detail',$key->id)}}" class="card-footer">
-                                <span class="ts-btn-arrow">Detail</span>
-                            </a>
-
-                        </div>
-                        <!--end ts-item-->
+                    <!--Brand and description-->
+                    <div class="col-md-6">
+                        <a href="#" class="brand d-flex justify-content-center pt-3">
+                            <img src="assets/img/vector.png" alt="" width="80%">
+                        </a>
                     </div>
-                    <!--end Item col-md-4-->
-                    @endforeach
+
+                    <!--Navigation-->
+                    <div class="col-md-6 d-flex align-items-center">
+                        <div class="row">
+                            <div class="col-12">
+                                <h2><b>Daksa</b></h2>
+                            </div>
+                            <div class="col">
+                                <p>DAKSA (Disabilitas Karya Anak Bangsa) memiliki peran yang penting dalam sistem informasi layanan umum penyedia fasilitas umum untuk disabilitas tunadaksa. DAKSA bertindak sebagai lembaga atau organisasi yang memberikan dukungan dan layanan khusus bagi penyandang disabilitas tunadaksa.</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+
                 </div>
                 <!--end row-->
-
-                <!--All properties button-->
-                <div class="text-center mt-3">
-                    <a href="{{route('rekomendasi')}}" class="btn btn-outline-dark ts-btn-border-muted">Show All Properties</a>
-                </div>
-
             </div>
             <!--end container-->
         </section>
 
-        <!-- FEATURES
-        =============================================================================================================-->
         <section class="ts-block bg-white">
             <div class="container py-4">
                 <div class="row">
@@ -251,37 +213,75 @@
         </section>
         <!--end ts-block-->
 
-        <section id="ts-footer-main bg-secondary">
+        <!-- FEATURED PROPERTIES
+        =============================================================================================================-->
+        <section class="ts-block pt-5">
             <div class="container">
+
+                <!--Title-->
+                <div class="ts-title text-center">
+                    <h2>Yang Paling Populer</h2>
+                </div>
+
                 <div class="row">
 
-                    <!--Brand and description-->
-                    <div class="col-md-6">
-                        <a href="#" class="brand d-flex justify-content-center pt-3">
-                            <img src="assets/img/vector.png" alt="" width="80%">
-                        </a>
-                    </div>
+                    <!--Item-->
+                    @foreach($data as $key)
+                    <div class="col-sm-4 col-lg-4">
+                        <div class="card ts-item ts-card ts-item__lg">
 
-                    <!--Navigation-->
-                    <div class="col-md-6 d-flex align-items-center">
-                        <div class="row">
-                            <div class="col-12">
-                                <h2><b>Daksa</b></h2>
+                            <!--Ribbon-->
+                            <div class="ts-ribbon">
+                                <i class="fa fa-thumbs-up"></i>
                             </div>
-                            <div class="col">
-                                <p>DAKSA (Disabilitas Karya Anak Bangsa) memiliki peran yang penting dalam sistem informasi layanan umum penyedia fasilitas umum untuk disabilitas tunadaksa. DAKSA bertindak sebagai lembaga atau organisasi yang memberikan dukungan dan layanan khusus bagi penyandang disabilitas tunadaksa.</p>
+
+                            <!--Card Image-->
+                            <a href="{{ route('detail', $key->id) }}" class="card-img ts-item__image" data-bg-image="{{ $galeri->where('id_tempat', $key->id)->isEmpty() ? 'assets/img/img-item-thumb-03.jpg' : 'storage/galeri/' . $galeri->where('id_tempat', $key->id)->first()->gambar }}">
+                                <figure class="ts-item__info">
+                                    <h4>{{$key->nama}}</h4>
+                                    <aside>
+                                        <i class="fa fa-map-marker mr-2"></i>
+                                        {{$key->nama_wilayah}}
+                                    </aside>
+                                </figure>
+                            </a>
+
+                            <!--Card Body-->
+                            <div class="card-body">
+                                <div class="ts-description-lists">
+                                    <dl>
+                                        <dt>Fasilitas</dt>
+                                        @foreach($fasilitas->where('id_tempat',$key->id) as $fasilitass)
+                                            <span class=""><img src="/storage/icon/{{$fasilitass->logo}}" style="max-width:32px;max-height:32px" alt=""> </span>
+                                        @endforeach                                        
+                                    </dl>
+                                </div>
                             </div>
+
+                            <!--Card Footer-->
+                            <a href="{{route('detail',$key->id)}}" class="card-footer">
+                                <span class="ts-btn-arrow">Detail</span>
+                            </a>
+
                         </div>
-                        
+                        <!--end ts-item-->
                     </div>
-
-
+                    <!--end Item col-md-4-->
+                    @endforeach
                 </div>
                 <!--end row-->
+
+                <!--All properties button-->
+                <div class="text-center mt-3">
+                    <a href="{{route('rekomendasi')}}" class="btn btn-outline-dark ts-btn-border-muted">Show All Properties</a>
+                </div>
+
             </div>
             <!--end container-->
         </section>
 
+        <!-- FEATURES
+        =============================================================================================================-->
     </main>
 
     <!--*********************************************************************************************************-->
