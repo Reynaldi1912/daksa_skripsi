@@ -359,7 +359,14 @@
                 });
 
                 marker.on('click', function() {
-                this.openPopup();
+                    // Dapatkan koordinat marker yang diklik
+                    var latlng = this.getLatLng();
+
+                    // Set view pusat peta pada koordinat marker dengan animasi durasi 1 detik
+                    map.setView(latlng, 12, { animate: true, duration: 1 });
+
+                    // Buka popup setelah peta telah berpindah ke pusat yang baru
+                    this.openPopup();                
                 });
             });
             })
@@ -439,7 +446,14 @@
                     });
 
                     marker.on('click', function() {
-                        this.openPopup();
+                         // Dapatkan koordinat marker yang diklik
+                        var latlng = this.getLatLng();
+
+                        // Set view pusat peta pada koordinat marker dengan animasi durasi 1 detik
+                        map.setView(latlng, 12, { animate: true, duration: 1 });
+
+                        // Buka popup setelah peta telah berpindah ke pusat yang baru
+                        this.openPopup();                
                     });
                 });
             })
