@@ -8,10 +8,10 @@
     }
     .floating-button {
         position: fixed;
-        top: 50%;
+        top: 90%;
         right: 20px;
         transform: translateY(-50%);
-        background-color: rgba(0, 123, 255, 0.5); /* Here, the alpha value is set to 0.8 for 80% transparency */
+        background-color: rgba(0, 123, 255, 0.3); /* Here, the alpha value is set to 0.8 for 80% transparency */
         padding: 10px;
         border-radius: 5px;
         display: flex;
