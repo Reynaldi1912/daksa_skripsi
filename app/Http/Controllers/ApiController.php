@@ -25,12 +25,14 @@ class ApiController extends Controller
         echo json_encode(DB::table('vw_kunjungan_bulan')->get());
     }
     public function getTempat($id_wilayah,$id_kategori){
-        if($id_wilayah == -1 || $id_kategori == -1){
+        if($id_kategori == -1){
             // Ambil data tempat dengan kolom gambar dari tabel galeri menggunakan LEFT JOIN
-            $data = Tempat::select('tempat.*', DB::raw('MAX(galeri.gambar) as gambar'))
+            $data = Tempat::select('tempat.*', DB::raw('MAX(galeri.gambar) as gambar'), 'kategori.pin_icon')
             ->leftJoin('galeri', 'tempat.id', '=', 'galeri.id_tempat')
+            ->leftJoin('kategori', 'tempat.id_kategori', '=', 'kategori.id')
             ->groupBy('tempat.id')
             ->get();
+        
 
             // Loop melalui setiap objek $data
             foreach ($data as $item) {
@@ -40,7 +42,8 @@ class ApiController extends Controller
         }else{
             $data = DB::table('tempat as a')
                     ->leftJoin('galeri as b', 'a.id', '=', 'b.id_tempat')
-                    ->select('a.*', DB::raw('MAX(b.gambar) as gambar'))
+                    ->leftJoin('kategori', 'a.id_kategori', '=', 'kategori.id')
+                    ->select('a.*', DB::raw('MAX(b.gambar) as gambar'), 'kategori.pin_icon')
                     ->where('a.id_wilayah', '=', $id_wilayah)
                     ->where('a.id_kategori', '=', $id_kategori)
                     ->groupBy('a.id')

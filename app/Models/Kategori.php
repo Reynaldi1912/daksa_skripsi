@@ -11,6 +11,7 @@ class Kategori extends Model
     protected $table = 'kategori';
     protected $fillable = [
         'nama',
-        'svg'
+        'svg',
+        'pin_icon'
     ];
 }

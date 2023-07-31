@@ -149,9 +149,9 @@
                 data.forEach(item => {
                     var icon = L.divIcon({
                         className: 'custom-marker-icon',
-                        iconSize: [32, 32], // Ubah ukuran ikon sesuai kebutuhan
-                        iconAnchor: [16, 32], // Ubah titik anchor ikon sesuai kebutuhan
-                        html: `<img src="/assets/leaflet.png" alt="Marker Icon">`
+                        iconSize: [32, 32],      // Ukuran ikon lebar 32px dan tinggi 32px
+                        iconAnchor: [16, 32],    // Anchor point berada di tengah bawah ikon
+                        html: `<img src="/storage/pin_icon/`+item.pin_icon+`" alt="Marker Icon" style="width: 100%; height: 100%;">`
                     });
 
                     var marker = L.marker([item.latitude, item.longitude], { icon: icon }).addTo(map);

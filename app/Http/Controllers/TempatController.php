@@ -81,15 +81,22 @@ class TempatController extends Controller
     public function postKategori(Request $request)
     {
         $file = $request->file('svg');
+        $pin_icon = $request->file('pin_icon');
 
-        if ($file) {
+        if ($file || $pin_icon) {
             $extension = $file->getClientOriginalExtension();
             $filename = Str::random(40) . '.' . $extension;
             $path = $file->storeAs('svg', $filename, 'public');
+
+            $pin_extension = $pin_icon->getClientOriginalExtension();
+            $pin_filename = Str::random(40) . '.' . $pin_extension;
+            $pin_path = $pin_icon->storeAs('pin_icon', $pin_filename, 'public');
+
             
             Kategori::create([
                 'nama' => $request->nama,
-                'svg' => $filename
+                'svg' => $filename,
+                'pin_icon'=> $pin_filename
             ]);
         }
         return redirect()->route('masterTempat')->with('success','Berhasil Tambah Kategori');
@@ -97,8 +104,34 @@ class TempatController extends Controller
     public function editKategori(Request $request)
     {
         $file = $request->file('svg');
+        $pin_icon = $request->file('pin_icon');
 
-        if ($file) {
+        if ($file && $pin_icon) {
+            $extension = $file->getClientOriginalExtension();
+            $filename = Str::random(40) . '.' . $extension;
+            $path = $file->storeAs('svg', $filename, 'public');
+
+            $pin_extension = $pin_icon->getClientOriginalExtension();
+            $pin_filename = Str::random(40) . '.' . $pin_extension;
+            $pin_path = $pin_icon->storeAs('pin_icon', $pin_filename, 'public');
+
+            $kategori = Kategori::where('id',$request->id_kategori)->first();
+            $kategori->update([
+                'nama' => $request->nama,
+                'svg' => $filename,
+                'pin_icon'=> $pin_filename
+            ]);
+        }elseif($pin_icon){
+            $pin_extension = $pin_icon->getClientOriginalExtension();
+            $pin_filename = Str::random(40) . '.' . $pin_extension;
+            $pin_path = $pin_icon->storeAs('pin_icon', $pin_filename, 'public');
+
+            $kategori = Kategori::where('id',$request->id_kategori)->first();
+            $kategori->update([
+                'nama' => $request->nama,
+                'pin_icon'=> $pin_filename
+            ]);
+        }elseif($file){
             $extension = $file->getClientOriginalExtension();
             $filename = Str::random(40) . '.' . $extension;
             $path = $file->storeAs('svg', $filename, 'public');
@@ -106,7 +139,7 @@ class TempatController extends Controller
             $kategori = Kategori::where('id',$request->id_kategori)->first();
             $kategori->update([
                 'nama' => $request->nama,
-                'svg' => $filename
+                'svg' => $filename,
             ]);
         }else{
             $kategori = Kategori::where('id',$request->id_kategori)->first();

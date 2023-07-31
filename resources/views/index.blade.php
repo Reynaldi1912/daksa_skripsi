@@ -55,7 +55,7 @@
                                 <!--Type-->
                                 <div class="col-sm-4">
                                     <select class="custom-select my-2" id="wilayah" name="wilayah">
-                                        <option value="-1">All</option>
+                                        <!-- <option value="-1">All</option> -->
                                        @foreach($wilayah as $wilayah_)
                                             <option value="{{$wilayah_->id}}">{{$wilayah_->nama}}</option>
                                        @endforeach
@@ -65,7 +65,7 @@
                                 <!--Status-->
                                 <div class="col-sm-4">
                                     <select class="custom-select my-2" id="kategori" name="kategori">
-                                        <option value="-1">All</option>
+                                        <option value="-1">Semua</option>
                                         @foreach($kategori as $kategori_)
                                             <option value="{{$kategori_->id}}">{{$kategori_->nama}}</option>
                                        @endforeach
@@ -75,7 +75,7 @@
                                 <!--Submit button-->
                                 <div class="col-sm-4">
                                     <div class="form-group my-2">
-                                        <button type="submit" class="btn btn-primary w-100" id="search-btn">Search
+                                        <button type="submit" class="btn btn-primary w-100" id="search-btn">Cari
                                         </button>
                                     </div>
                                 </div>
@@ -310,9 +310,9 @@
             data.forEach(item => {
                 var icon = L.divIcon({
                     className: 'custom-marker-icon',
-                    iconSize: [1,1],
-                    iconAnchor: [1,1],
-                    html: `<img src="/assets/leaflet.png" alt="Marker Icon">`
+                    iconSize: [32, 32],      // Ukuran ikon lebar 32px dan tinggi 32px
+                    iconAnchor: [16, 32],    // Anchor point berada di tengah bawah ikon
+                    html: `<img src="/storage/pin_icon/`+item.pin_icon+`" alt="Marker Icon" style="width: 100%; height: 100%;">`
                 });
                 console.log(item);
 
@@ -366,7 +366,7 @@
                     map.setView(latlng, 12, { animate: true, duration: 1 });
 
                     // Buka popup setelah peta telah berpindah ke pusat yang baru
-                    this.openPopup();                
+                    this.openPopup();
                 });
             });
             })
@@ -397,9 +397,9 @@
                 data.forEach(item => {
                     var icon = L.divIcon({
                         className: 'custom-marker-icon',
-                        iconSize: [1,1],
-                        iconAnchor: [1,1],
-                        html: `<img src="/assets/leaflet.png" alt="Marker Icon">`
+                        iconSize: [32, 32],      // Ukuran ikon lebar 32px dan tinggi 32px
+                        iconAnchor: [16, 32],    // Anchor point berada di tengah bawah ikon
+                        html: `<img src="/storage/pin_icon/`+item.pin_icon+`" alt="Marker Icon" style="width: 100%; height: 100%;">`
                     });
 
                     var marker = L.marker([item.latitude, item.longitude], { icon: icon }).addTo(map);

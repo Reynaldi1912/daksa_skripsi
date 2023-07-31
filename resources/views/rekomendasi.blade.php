@@ -44,7 +44,6 @@
                                     <!--Type-->
                                     <div class="col-sm-6">
                                         <select class="custom-select my-2" id="kota" name="kota">
-                                            <option value="">Pilihan Kota</option>
                                             @foreach($wilayah as $wilayah)
                                                 <option value="{{$wilayah->id}}" @if($wilayah->id == $kota_id) selected @endif>{{$wilayah->nama}}</option>
                                             @endforeach
@@ -56,7 +55,7 @@
                                     <!--Submit button-->
                                     <div class="col-sm-6">
                                         <div class="form-group my-2">
-                                            <button type="submit" class="btn btn-primary w-100" id="search-btn">Search
+                                            <button type="submit" class="btn btn-primary w-100" id="search-btn">Cari
                                             </button>
                                         </div>
                                     </div>

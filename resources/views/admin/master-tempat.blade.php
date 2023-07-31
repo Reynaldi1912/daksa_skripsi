@@ -141,7 +141,10 @@
                                       @csrf
                                       <h4 class="text-start pb-4">Tambahkan Kategori</h4>
                                       <input type="text" class="form-control" placeholder="Nama Kategori" name="nama" required>
+                                      <h6 class="text-start pt-4">Icon Kategori</h6>
                                       <input type="file" class="form-control mt-3" name="svg" required>
+                                      <h6 class="text-start pt-4">Icon Pin</h6>
+                                      <input type="file" class="form-control mt-3" name="pin_icon">
                                       <button class="btn btn-primary btn-block mt-3" type="submit">Simpan</button>
                                     </form>
                                   </div>
@@ -161,6 +164,8 @@
                           <tr>
                             <th>Nama</th>
                             <th>Tanggal Pembuatan</th>
+                            <th>Icon Pin</th>
+                            <th>Icon Kategori</th>
                             <th>Action</th>
                           </tr>
                         </thead>
@@ -169,6 +174,8 @@
                           <tr>
                             <td>{{$kategori_->nama}}</td>
                             <td>{{$kategori_->created_at}}</td>
+                            <td><img src="/storage/pin_icon/{{$kategori_->pin_icon}}" alt="Marker Icon" style="width: 32px;"></td>
+                            <td><img src="/storage/svg/{{$kategori_->svg}}" alt="Marker Icon" style="width: 32px;"></td>
                             <td> 
                               <ul class="action"> 
                                 <li class="edit"> <a data-bs-toggle="modal" data-original-title="test" data-bs-target="#editModalKategori" onclick="editKategori({{$kategori_->id}})"><i class="icon-pencil-alt"></i></a></li>
@@ -363,7 +370,10 @@
                       <h4 class="text-start pb-4">Edit Kategori</h4>
                       <input type="hidden" id="id_kategori" name="id_kategori">
                       <input type="text" class="form-control" placeholder="Nama Kategori" name="nama" id="nama_kategori" required>
+                      <h6 class="text-start pt-4">Icon Kategori</h6>
                       <input type="file" class="form-control mt-3" name="svg">
+                      <h6 class="text-start pt-4">Icon Pin</h6>
+                      <input type="file" class="form-control mt-3" name="pin_icon">
                       <button class="btn btn-primary btn-block mt-3" type="submit">Simpan</button>
                     </form>
                   </div>
