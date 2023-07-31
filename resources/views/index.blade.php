@@ -8,7 +8,7 @@
     }
     .floating-button {
         position: fixed;
-        top: 60%;
+        top: 80%;
         right: 20px;
         transform: translateY(-50%);
         padding: 10px;
