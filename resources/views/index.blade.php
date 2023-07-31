@@ -8,7 +8,7 @@
     }
     .floating-button {
         position: fixed;
-        top: 85%;
+        top: 60%;
         right: 20px;
         transform: translateY(-50%);
         padding: 10px;
@@ -22,11 +22,11 @@
     .floating-button a {
         color: #fff;
         text-decoration: none;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
     }
     .floating-button {
         position: fixed;
-        bottom: 20px;
+        /* bottom: 20px; */
         right: 20px;
         display: flex;
         flex-direction: column;
@@ -37,7 +37,8 @@
         color: #fff;
         opacity: 0.3;
         text-align: center;
-        padding: 10px;
+        /* padding: 10px; */
+        /* margin-top: 10px; */
         margin-bottom: 10px;
         border-radius: 10%;
         width: 40px;
