@@ -141,9 +141,9 @@
                                       @csrf
                                       <h4 class="text-start pb-4">Tambahkan Kategori</h4>
                                       <input type="text" class="form-control" placeholder="Nama Kategori" name="nama" required>
-                                      <h6 class="text-start pt-4">Icon Kategori</h6>
+                                      <h6 class="text-start pt-4">Icon Kategori (svg)</h6>
                                       <input type="file" class="form-control mt-3" name="svg" required>
-                                      <h6 class="text-start pt-4">Icon Pin</h6>
+                                      <h6 class="text-start pt-4">Icon Pin (png)</h6>
                                       <input type="file" class="form-control mt-3" name="pin_icon">
                                       <button class="btn btn-primary btn-block mt-3" type="submit">Simpan</button>
                                     </form>
@@ -370,9 +370,9 @@
                       <h4 class="text-start pb-4">Edit Kategori</h4>
                       <input type="hidden" id="id_kategori" name="id_kategori">
                       <input type="text" class="form-control" placeholder="Nama Kategori" name="nama" id="nama_kategori" required>
-                      <h6 class="text-start pt-4">Icon Kategori</h6>
+                      <h6 class="text-start pt-4">Icon Kategori (svg)</h6>
                       <input type="file" class="form-control mt-3" name="svg">
-                      <h6 class="text-start pt-4">Icon Pin</h6>
+                      <h6 class="text-start pt-4">Icon Pin (png)</h6>
                       <input type="file" class="form-control mt-3" name="pin_icon">
                       <button class="btn btn-primary btn-block mt-3" type="submit">Simpan</button>
                     </form>
