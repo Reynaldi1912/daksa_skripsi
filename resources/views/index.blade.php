@@ -11,7 +11,6 @@
         top: 85%;
         right: 20px;
         transform: translateY(-50%);
-        background-color: rgba(0, 123, 255, 0.3); /* Here, the alpha value is set to 0.8 for 80% transparency */
         padding: 10px;
         border-radius: 5px;
         display: flex;
@@ -24,6 +23,27 @@
         color: #fff;
         text-decoration: none;
         margin-bottom: 10px;
+    }
+    .floating-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+    .floating-button a {
+        display: block;
+        background-color: #007bff;
+        color: #fff;
+        opacity: 0.3;
+        text-align: center;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 10%;
+        width: 40px;
+        height: 40px;
+        text-decoration: none;
+        font-size: 18px;
     }
 </style>
 <!-- HERO MAP
@@ -97,12 +117,9 @@
     </section>
     <!--end #search-form-->
 
-    <!-- Floating buttons -->
     <div class="floating-button">
-        <a href="#map">map</a>
-        <a href="#ts-footer-main">daksa</a>
-        <a href="#fitur">fitur</a>
-        <a href="#populer">populer</a>
+        <a href="#map" id="btnUp">▲</a>
+        <a href="#fitur" id="btnDown">▼</a>
     </div>
 
 </section>
@@ -460,6 +477,32 @@
             .catch(error => console.error('Error:', error));
     });
 
+    document.addEventListener("DOMContentLoaded", function () {
+    const btnUp = document.getElementById("btnUp");
+    const btnDown = document.getElementById("btnDown");
+    const sections = document.querySelectorAll("section");
+    let currentSectionIndex = 0;
+
+    // Function to scroll to the current section
+    function scrollToSection(index) {
+      sections[index].scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+
+    btnUp.addEventListener("click", function (event) {
+      event.preventDefault();
+      currentSectionIndex = Math.max(0, currentSectionIndex - 1);
+      scrollToSection(currentSectionIndex);
+    });
+
+    btnDown.addEventListener("click", function (event) {
+      event.preventDefault();
+      currentSectionIndex = Math.min(sections.length - 1, currentSectionIndex + 1);
+      scrollToSection(currentSectionIndex);
+    });
+  });
 </script>
 
 
