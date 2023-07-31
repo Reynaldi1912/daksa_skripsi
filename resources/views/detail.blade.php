@@ -49,7 +49,7 @@
                             </div> -->
                             <div class="col text-left">
                                 <a href="{{$data->link_rute}}" class="btn btn-light w-100 mt-5">
-                                    <i class="fa fa-location-arrow"></i>
+                                    Tunjukan Rute &nbsp<i class="fa fa-location-arrow"></i>
                                 </a>
                             </div>
                         </div>

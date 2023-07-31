@@ -8,7 +8,7 @@
     }
     .floating-button {
         position: fixed;
-        top: 90%;
+        top: 50%;
         right: 20px;
         transform: translateY(-50%);
         background-color: rgba(0, 123, 255, 0.3); /* Here, the alpha value is set to 0.8 for 80% transparency */

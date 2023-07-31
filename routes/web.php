@@ -15,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\PublicController::class, 'index']);
 Route::get('/rekomendasi', [App\Http\Controllers\PublicController::class, 'rekomendasi'])->name('rekomendasi');
+Route::get('/dokumentasi', function () {
+    return view('dokumentasi');
+})->name('dokumentasi');
+
+
 Route::post('/filter-rekomendasi', [App\Http\Controllers\PublicController::class, 'FilterRekomendasi'])->name('FilterRekomendasi');
 Route::get('/detail/{id}', [App\Http\Controllers\PublicController::class, 'detail'])->name('detail');
 Route::get('/reload-captcha', [App\Http\Controllers\PublicController::class, 'reloadCaptcha'])->name('reloadCaptcha');

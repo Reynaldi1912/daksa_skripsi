@@ -37,6 +37,9 @@
                         <li class="nav-item">
                             <a class="nav-link mr-2" href="/rekomendasi">Rekomendasi</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link mr-2" href="/dokumentasi">Cara penggunaan</a>
+                        </li>
                         <!--end CONTACT nav-item-->
 
                     </ul>
