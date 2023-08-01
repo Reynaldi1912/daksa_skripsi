@@ -18,6 +18,47 @@
   color: yellow;
 }
 
+.floating-button {
+        position: fixed;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        padding: 10px;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 9999; /* Atur nilai z-index ke angka yang besar */
+    }
+
+    .floating-button a {
+        color: #fff;
+        text-decoration: none;
+        margin-bottom: 20px;
+    }
+    .floating-button {
+        position: fixed;
+        /* bottom: 20px; */
+        right: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+    .floating-button a {
+        display: block;
+        background-color: #007bff;
+        color: #fff;
+        opacity: 0.3;
+        text-align: center;
+        /* padding: 10px; */
+        /* margin-top: 10px; */
+        margin-bottom: 10px;
+        border-radius: 10%;
+        width: 40px;
+        height: 40px;
+        text-decoration: none;
+        font-size: 18px;
+    }
+
 </style>
 <br><br><br><br>
 <div class="ts-page-wrapper ts-has-bokeh-bg" id="page-top">
@@ -62,7 +103,7 @@
 
         <!--GALLERY CAROUSEL
             =========================================================================================================-->
-        <section id="gallery-carousel" class="">
+        <div id="gallery-carousel" class="">
 
             <div class="owl-carousel ts-gallery-carousel ts-gallery-carousel__multi" data-owl-dots="1" data-owl-items="3" data-owl-center="1" data-owl-loop="1">
 
@@ -77,11 +118,11 @@
 
             </div>
 
-        </section>
+        </div>
 
         <!--CONTENT
             =========================================================================================================-->
-        <section id="content">
+        <div id="content">
             <div class="container">
                 <div class="row flex-wrap-reverse">
 
@@ -107,9 +148,8 @@
                 <!--end row-->
             </div>
             <!--end container-->
-        </section>
+        </div>
 
-        <section>
             <div class="container">
                 <div class="row flex-wrap-reverse">
                     <!--RIGHT SIDE
@@ -142,9 +182,7 @@
                 <!--end row-->
             </div>
             <!--end container-->
-        </section>
 
-        <section>
             <div class="container">
                 <div class="row flex-wrap-reverse">
                     <!--RIGHT SIDE
@@ -183,9 +221,7 @@
                 <!--end row-->
             </div>
             <!--end container-->
-        </section>
 
-        <section>
             <div class="container pb-5 mt-5">
                 <div class="row flex-wrap-reverse">
                     <!--RIGHT SIDE
@@ -306,9 +342,7 @@
                 <!--end row-->
             </div>
             <!--end container-->
-        </section>
 
-        <section>
             <div class="container pb-5">
                 <div class="row flex-wrap-reverse">
                     <!--RIGHT SIDE
@@ -368,12 +402,16 @@
                 <!--end row-->
             </div>
             <!--end container-->
-        </section>
 
     </main>
 
 </div>
 <!--end page-->
+
+<div class="floating-button">
+    <a href="#map" id="btnUp">▲</a>
+    <a href="#fitur" id="btnDown">▼</a>
+</div>
 
 <script type="text/javascript">
     function reloadCaptcha(){
@@ -402,5 +440,34 @@
         // Alert the copied text
         alert("Copied the text: " + copyText.value);
     }
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const btnUp = document.getElementById("btnUp");
+    const btnDown = document.getElementById("btnDown");
+    const sections = document.querySelectorAll("section");
+    let currentSectionIndex = 0;
+
+    // Function to scroll to the current section
+    function scrollToSection(index) {
+      sections[index].scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+
+    btnUp.addEventListener("click", function (event) {
+      event.preventDefault();
+      currentSectionIndex = Math.max(0, currentSectionIndex - 1);
+      scrollToSection(currentSectionIndex);
+    });
+
+    btnDown.addEventListener("click", function (event) {
+      event.preventDefault();
+      currentSectionIndex = Math.min(sections.length - 1, currentSectionIndex + 1);
+      scrollToSection(currentSectionIndex);
+    });
+  });
 </script>
 @endsection

@@ -1,5 +1,47 @@
 @extends('layouts.app')
 @section('content')
+<style>
+    .floating-button {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 9999; /* Atur nilai z-index ke angka yang besar */
+        }
+
+        .floating-button a {
+            color: #fff;
+            text-decoration: none;
+            margin-bottom: 20px;
+        }
+        .floating-button {
+            position: fixed;
+            /* bottom: 20px; */
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .floating-button a {
+            display: block;
+            background-color: #007bff;
+            color: #fff;
+            opacity: 0.3;
+            text-align: center;
+            /* padding: 10px; */
+            /* margin-top: 10px; */
+            margin-bottom: 10px;
+            border-radius: 10%;
+            width: 40px;
+            height: 40px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+</style>
 <br><br><br><br>
     <section id="ts-main">
     <section id="search-form">
@@ -137,4 +179,38 @@
             <!--end container-->
         </section>
     </section>
+
+<div class="floating-button">
+    <a href="#map" id="btnUp">▲</a>
+    <a href="#fitur" id="btnDown">▼</a>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const btnUp = document.getElementById("btnUp");
+    const btnDown = document.getElementById("btnDown");
+    const sections = document.querySelectorAll("section");
+    let currentSectionIndex = 0;
+
+    // Function to scroll to the current section
+    function scrollToSection(index) {
+      sections[index].scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+
+    btnUp.addEventListener("click", function (event) {
+      event.preventDefault();
+      currentSectionIndex = Math.max(0, currentSectionIndex - 1);
+      scrollToSection(currentSectionIndex);
+    });
+
+    btnDown.addEventListener("click", function (event) {
+      event.preventDefault();
+      currentSectionIndex = Math.min(sections.length - 1, currentSectionIndex + 1);
+      scrollToSection(currentSectionIndex);
+    });
+  });
+</script>
 @endsection
