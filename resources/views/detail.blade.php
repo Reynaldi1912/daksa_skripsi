@@ -20,7 +20,7 @@
 
 .floating-button {
         position: fixed;
-        top: 50%;
+        top: 60%;
         right: 20px;
         transform: translateY(-50%);
         padding: 10px;

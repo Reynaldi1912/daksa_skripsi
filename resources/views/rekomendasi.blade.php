@@ -3,7 +3,7 @@
 <style>
     .floating-button {
             position: fixed;
-            top: 50%;
+            top: 60%;
             right: 20px;
             transform: translateY(-50%);
             padding: 10px;
@@ -124,6 +124,7 @@
                 <div class="row">
                     @foreach($data as $key => $data_)
                     <!--Item-->
+                    <section></section>
                     <div class="col-sm-{{ $key < 3 ? '4' : '3' }} col-lg-{{ $key < 3 ? '4' : '3' }}">
 
                         <div class="card ts-item ts-card ts-item__lg">
